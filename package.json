@@ -1,0 +1,23 @@
+{
+  "name": "proyectopersonal_01",
+  "version": "1.0.0",
+  "description": "primer proyecto solo gulp sass js css etc",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andres Gama",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^5.0.2",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "postcss": "^8.2.14"
+  }
+}
