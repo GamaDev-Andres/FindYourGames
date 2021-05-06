@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA,KACE,qBAAsB,CADxB,QAGI,SAAU","file":"style.css","sourcesContent":["body {\r\n  background-color: blue;\r\n  h1 {\r\n    color: red;\r\n  }\r\n}\r\n"]}
