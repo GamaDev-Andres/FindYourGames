@@ -1,4 +1,4 @@
-const { watch, src, dest, parallel } = require("gulp");
+const { watch, src, dest, parallel, series } = require("gulp");
 const sass = require("gulp-sass");
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -30,14 +30,14 @@ function imagenes() {
     .pipe(dest("./build/img"));
 }
 function versionWebp() {
-  return src(paths.imagenes).pipe(webp()).pipe(dest("build/img"));
+  return src(patrones.imagenes).pipe(webp()).pipe(dest("build/img"));
 }
 function watchArchivos() {
-  watch(paths.scss, css);
-  watch(paths.imagenes, imagenes);
-  watch(paths.imagenes, versionWebp);
+  watch(patrones.scss, css);
+  watch(patrones.imagenes, imagenes);
+  watch(patrones.imagenes, versionWebp);
 }
 
 exports.css = css;
 exports.imagenes = imagenes;
-exports.default = parallel(css, versionWebp, watchArchivos);
+exports.default = series(css, imagenes, versionWebp, watchArchivos);
