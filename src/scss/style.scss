@@ -5,7 +5,7 @@
 html {
   box-sizing: border-box;
   height: 100vh;
-  background-color: lighten($n-claro, $amount: 5);
+  background-color: $n-claro;
 }
 body {
   font-family: $global;

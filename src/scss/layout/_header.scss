@@ -1,17 +1,19 @@
 #header {
-  height: 400px;
+  min-height: auto;
   width: 100%;
   background-color: $n-claro;
-  border-bottom: 0.75px solid $n-claro;
+  border-bottom: 0.5px solid rgb(41, 41, 41);
 }
 .navegacion {
+  position: fixed;
+  top: 0;
   background-color: $negro;
   width: 100%;
   min-height: 6.25rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  //   flex-grow: 1;
+  box-shadow: 0px 1px 0px 0px #5f5d5d;
   gap: 5rem;
   align-items: center;
 
@@ -73,8 +75,24 @@
   }
   @include tablet {
     .enlaces {
-      gap: $poco;
+      gap: 20px;
       flex-direction: column;
+    }
+    .div-buscador {
+      form {
+        input {
+          width: 300px;
+        }
+      }
+    }
+  }
+  @include telefono {
+    .div-buscador {
+      form {
+        input {
+          width: 200px;
+        }
+      }
     }
   }
 }
@@ -85,5 +103,44 @@
     cursor: pointer;
     height: $poco + 0.3rem;
     color: $blanco;
+  }
+}
+.bienvenida {
+  border-bottom: 2px solid $n-claro;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+  // height: 100%;
+  // width: 100%;
+  h2 {
+    color: $naranja;
+    font-size: 40px;
+  }
+  p {
+    color: darken($blanco, $amount: 10);
+    font-size: 20px;
+    margin-top: 0;
+  }
+  @include desktop {
+    margin-top: 150px;
+  }
+  @include tablet {
+    margin-top: 240px;
+    h2 {
+      span {
+        display: none;
+      }
+    }
+  }
+  @include telefono {
+    h2 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 14px;
+    }
   }
 }
