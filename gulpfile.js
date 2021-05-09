@@ -12,9 +12,10 @@ const cache = require("gulp-cache");
 const cssnano = require("cssnano");
 
 const patrones = {
+  //notaaaaa NO PONERLE A LAS IMAGENES IMG--------> PORQUE TUVE UN ERROR CON GULP
+  imagen: "src/imagenes/**/*",
   js: "src/javascript/**/*.js",
   scss: "src/scss/**/*.scss",
-  img: "src/imagenes/**/*",
 };
 function css() {
   return src(patrones.scss)
@@ -25,19 +26,20 @@ function css() {
     .pipe(dest("./build/css"));
 }
 function imagenes() {
-  return src(patrones.img)
+  return src(patrones.imagen)
     .pipe(cache(imagemin({ optimizationLevel: 3 })))
     .pipe(dest("./build/img"));
 }
 function versionWebp() {
-  return src(patrones.imagenes).pipe(webp()).pipe(dest("build/img"));
+  return src(patrones.imagen).pipe(webp()).pipe(dest("./build/img"));
 }
 function watchArchivos() {
   watch(patrones.scss, css);
-  watch(patrones.imagenes, imagenes);
-  watch(patrones.imagenes, versionWebp);
+  watch(patrones.imagen, imagenes);
+  watch(patrones.imagen, versionWebp);
 }
 
 exports.css = css;
 exports.imagenes = imagenes;
+exports.versionWebp = versionWebp;
 exports.default = series(css, imagenes, versionWebp, watchArchivos);

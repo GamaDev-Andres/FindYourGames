@@ -1,6 +1,21 @@
+@import "./utilidades/globales";
+@import "./utilidades/normalize";
+@import "./utilidades/mixins";
+@import "./layout/header";
+html {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: lighten($n-claro, $amount: 5);
+}
 body {
-  background-color: blue;
-  h1 {
-    color: red;
-  }
+  font-family: $global;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.875rem;
+}
+h3 {
+  font-size: 1.5625rem;
 }
