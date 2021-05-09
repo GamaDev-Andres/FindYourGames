@@ -1,0 +1,78 @@
+#footer {
+  width: 100%;
+  min-height: 15.625rem;
+  background-color: $negro;
+}
+.contenido-footer {
+  padding: 1rem 2rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  .enlaces__footer {
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    @include tablet {
+      flex-direction: column;
+      //   align-items: center;
+      div {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid white;
+        padding: $poco/2;
+        &:nth-last-of-type(1) {
+          border: 0;
+        }
+      }
+    }
+    div a {
+      display: block;
+      text-decoration: none;
+      color: $blanco;
+      padding: 0.5rem;
+      font-size: 22px;
+      &:hover {
+        color: darken($blanco, $amount: 30);
+      }
+    }
+    .logo {
+      width: 40%;
+      text-align: center;
+      i {
+        font-size: 100px;
+      }
+    }
+  }
+  .div-copy {
+    padding-top: 1rem;
+    height: 15%;
+    width: 100%;
+    border-top: 0.5px solid rgb(29, 22, 22);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include tablet {
+      flex-direction: column;
+      .texto-copy {
+        text-align: center;
+      }
+      .redes {
+        margin: 1rem 0;
+      }
+    }
+    .redes {
+      width: 300px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      a {
+        i {
+          font-size: 40px;
+        }
+        // width: 100px;
+        color: white;
+        background-color: $negro;
+      }
+    }
+  }
+}
