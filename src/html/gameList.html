@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../build/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/51b9e66069.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>API juegos</title>
+  </head>
+  <body>
+    <!--INICIO DE NUESTRA CABECERA-->
+    <header id="header" class="header">
+      <!--INICIO NAVEGACION-->
+      <nav class="navegacion">
+        <div class="inactivo menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="enlaces">
+          <a href="../../index.html">
+            <h1>JUEGA GRATIS</h1>
+          </a>
+          <a href="../../index.html"  class="inicio">Inicio</a>
+          <a href="./gameList.html" class="game-list">Game List</a>
+          <a href="#" class="filtrar">Filtrar</a>
+        </div>
+        <!--INICIO FORMULARIO-->
+        <div class="div-buscador">
+          <form class="formulario-buscar">
+            <label for="buscar">
+              <!-- INICIO CONTENEDOR DEL ICONO-->
+              <div class="contenedor-svg">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </div>
+              <!-- FIN CONTENEDOR DEL ICONO-->
+            </label>
+            <input id="buscar" class="buscar" type="search" />
+          </form>
+        </div>
+        <!--FIN FORMULARIO-->
+      </nav>
+      <!--FIN NAVEGACION-->
+      <!-- INICIO BIENVENIDA -->
+      <div class="bienvenida">
+        <h2 class="bienvenida__titulo">
+          <span>Bienvenidos, </span>Lista De Juegos Gratis
+        </h2>
+        <p class="bienvenida__parrafo">
+          navega con nosotros y encuentra tu juego preferido
+        </p>
+      </div>
+      <!-- FIN BIENVENIDA -->
+    </header>
+    <!--FIN DE NUESTRA CABECERA-->
+    <!-- INICIO DE CONTENIDO PRINCIPAL -->
+    <div id="contenedor-gameList" class="contenido-gameList">
+     
+      </div>
+    </div>
+
+    <!-- INICIO DE FOOTER -->
+    <footer id="footer" class="footer">
+      <div class="contenido-footer">
+        <div class="enlaces__footer">
+          <div class="enlaces-1">
+            <a href="#" >About Us</a>
+            <a href="#">API</a>
+            <a href="#">Contact Us</a>
+          </div>
+          <div class="enlaces-2">
+            <a href="#">Help/FAQ</a><a href="#">Support & Bugs</a
+            ><a href="#">Feature Request</a>
+          </div>
+          <div class="enlaces-3">
+            <a href="#">Privacy Policy</a><a href="#">Cookies Policy</a
+            ><a href="#">Terms of Use</a>
+          </div>
+          <div class="logo">
+            <a href="#"><i class="fab fa-xbox"></i></a>
+          </div>
+        </div>
+        <div class="div-copy">
+          <div class="texto-copy">
+            <p>
+              © 2021 Digiwalls Media, all rights reserved. All trademarks are
+              property of their respective owners.
+            </p>
+          </div>
+          <div class="redes">
+            <a href=""><i class="fab fa-facebook"></i></a
+            ><a href=""><i class="fab fa-twitter-square"></i></a
+            ><a href=""><i class="fab fa-instagram-square"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FIN DE FOOTER -->
+
+    <script src="../javascript/app.js"></script>
+  </body>
+</html>
