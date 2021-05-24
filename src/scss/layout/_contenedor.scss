@@ -71,6 +71,10 @@
   .game {
     background-color: #32383e;
     border-radius: 1rem;
+    &:hover {
+      transform: scale(1.035);
+      transition: transform 0.2s linear;
+    }
     // padding: 1rem;
     .game-imagen {
       width: 100%;
@@ -110,5 +114,49 @@
         }
       }
     }
+  }
+}
+.aviso-contenido {
+  max-width: 100%;
+  padding: 1rem;
+  background-color: $naranja;
+  .aviso {
+    margin: 0;
+    color: $blanco;
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+div.btn-scroll {
+  display: none;
+  background-color: $naranja;
+  position: fixed;
+  // width: auto;
+  border-radius: 50%;
+  margin: auto;
+  padding: 1rem;
+  right: calc(50vw - (67px / 2));
+  bottom: 1rem;
+  &:hover {
+    background-color: lighten($naranja, $amount: 5);
+    transform: scale(1.05);
+    i {
+      color: white;
+    }
+  }
+  i {
+    font-size: 2.5rem;
+    color: $blanco;
+  }
+  @include telefono {
+    i {
+      font-size: 22px;
+    }
+  }
+}
+@include tablet {
+  i {
+    font-size: 28px;
   }
 }
