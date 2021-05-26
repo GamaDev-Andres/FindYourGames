@@ -1,0 +1,120 @@
+.contendor-filtro {
+  width: 100%;
+  margin: 0;
+  label {
+    text-transform: lowercase;
+    color: $blanco;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .titulo-filtro {
+    text-align: center;
+    color: $naranja;
+    text-transform: uppercase;
+    border-bottom: 1px solid $naranja;
+    padding: 5px;
+  }
+  .formulario {
+    padding: 1rem;
+    border-bottom: 1px solid $blanco;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: column;
+    div {
+      background-color: $n-claro;
+    }
+    .ordenar-por {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      padding: auto;
+      border-radius: 10px;
+      width: 100%;
+      select {
+        flex-grow: 1;
+        outline: none;
+        padding: 5px;
+        max-width: 200px;
+        border-radius: 100px;
+        background-color: $n-claro;
+        border: none;
+        color: $blanco;
+      }
+    }
+    .genero {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      h4 {
+        border-bottom: 1px solid $naranja;
+        background-color: #1c1e22;
+        text-align: center;
+        padding: 10px;
+        color: $naranja;
+        margin: 0;
+      }
+      div {
+        padding: 5px 15px;
+        display: flex;
+        justify-content: space-between;
+      }
+      div:last-of-type {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .plataforma {
+    width: 100%;
+    margin-bottom: 1rem;
+    h4 {
+      border-bottom: 1px solid $naranja;
+      background-color: #1c1e22;
+      text-align: center;
+      padding: 10px;
+      color: $naranja;
+      margin: 0;
+    }
+    div {
+      //   max-width: 100%;
+      display: flex;
+      padding: 1rem;
+      justify-content: center;
+      align-items: space-between;
+      flex-flow: column wrap;
+      gap: 10px;
+      div {
+        flex-grow: 1;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: space-between;
+        padding: 0;
+      }
+      //   input {
+      //     display: block;
+      //     // margin-left: 10px;
+      //   }
+    }
+  }
+}
+.aside-filtro {
+  overflow: scroll;
+  background-color: #1c1e22;
+  padding: 1rem;
+
+  width: 35%;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  z-index: 1000;
+  //   transform: translateX(-100%);
+  @include desktop {
+    width: 50%;
+  }
+}

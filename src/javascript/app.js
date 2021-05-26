@@ -173,14 +173,21 @@ async function filtrarRespuesta(filtro) {
   const respuesta = await fetch(url);
   const resolve = await respuesta.json();
   const resultado = JSON.parse(resolve.contents);
-  let re = new RegExp(filtro, "ig");
+  let filtrado = filtro.trim();
+  let re = new RegExp(filtrado, "i");
+  if (filtrado === "") {
+    inputSearch.value = "";
+    location.href = "gameList.html";
+    return;
+  }
   if (resultado.some((juego) => re.test(juego.title))) {
     const arrayFiltrado = resultado.filter((juego) => re.test(juego.title));
     crearHtml(arrayFiltrado);
   } else {
-    inputSearch.value = "";
     alert("No tenemos resultados");
-    crearHtml(resultado);
+    inputSearch.value = "";
+    location.href = "gameList.html";
+    // crearHtml(resultado);
   }
 }
 function limpiarHtml() {
@@ -190,3 +197,5 @@ function limpiarHtml() {
     contenidoPrincipal.removeChild(contenidoPrincipal.firstChild);
   }
 }
+//////////////////////////////////////////////////////////////
+//APARECER ASIDE DANDO CLICK EN FILTRAR
