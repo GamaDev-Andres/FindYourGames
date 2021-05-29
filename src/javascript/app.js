@@ -1,12 +1,19 @@
+const body = document.querySelector("body");
+const contenedorFiltro = document.querySelector(".aside-filtro");
+const filtro = document.querySelector(".div-filtro");
 const iconoMenu = document.querySelector(".menu");
 const inputSearch = document.querySelector(".buscar");
 const formulario = document.querySelector(".formulario-buscar");
+const btnFiltro = document.querySelector(".filtrar");
+
 //DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
   iconoMenu.addEventListener("click", desplegarMenu);
   consultarAPI();
   detectaScroll();
   formulario.addEventListener("submit", buscadorGames);
+  btnFiltro.addEventListener("click", abrirFiltro);
+  document.addEventListener("click", cerrarFiltro);
 });
 //FUNCION PARA DESPLEGAR EL MENU ,CUANDO DOY CLICK EN EL ICONO
 function desplegarMenu() {
@@ -49,7 +56,7 @@ function crearHtml(resultado) {
   if (resultado.length >= 30) {
     arrayGames = resultado.slice(inicial, fin);
   } else {
-    arrayGames = resultado;
+    arrayGames = [...resultado];
   }
 
   //ITERO EL ARRAY QUE SEPARE
@@ -199,3 +206,22 @@ function limpiarHtml() {
 }
 //////////////////////////////////////////////////////////////
 //APARECER ASIDE DANDO CLICK EN FILTRAR
+function abrirFiltro(e) {
+  e.preventDefault();
+
+  contenedorFiltro.style.visibility = "visible";
+
+  filtro.classList.add("transicion");
+  body.classList.add("scroll-body");
+}
+function cerrarFiltro(e) {
+  if (
+    e.target.id === "contenido-filtro" ||
+    e.target.classList.contains("far")
+  ) {
+    console.log("estoy awui");
+    filtro.classList.remove("transicion");
+    body.classList.remove("scroll-body");
+    contenedorFiltro.style.visibility = "hidden";
+  }
+}

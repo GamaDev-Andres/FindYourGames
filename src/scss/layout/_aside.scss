@@ -7,6 +7,17 @@
     font-weight: 400;
     font-size: 16px;
   }
+  .cerrar-filtro {
+    display: block;
+    border: none;
+    padding-top: 10px;
+    background-color: transparent;
+    margin: 0 auto;
+    color: $naranja;
+    i {
+      font-size: 20px;
+    }
+  }
   .titulo-filtro {
     text-align: center;
     color: $naranja;
@@ -94,27 +105,69 @@
         align-items: space-between;
         padding: 0;
       }
-      //   input {
-      //     display: block;
-      //     // margin-left: 10px;
-      //   }
+    }
+  }
+  .div-submit {
+    width: 50%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    input {
+      font-size: 20px;
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      background-color: $naranja;
+      border: 1px solid $naranja;
+      margin: 0 auto;
+      padding: 5px;
+      &:focus {
+        background-color: darken($naranja, $amount: 10);
+        transform: scale(1.03);
+        transition: all 0.3s linear;
+      }
     }
   }
 }
-.aside-filtro {
+.div-filtro {
   overflow: scroll;
   background-color: #1c1e22;
   padding: 1rem;
-
   width: 35%;
   height: 100vh;
   display: flex;
   position: fixed;
   top: 0;
-  left: 0px;
-  z-index: 1000;
-  //   transform: translateX(-100%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s linear;
+  &.transicion {
+    transform: translateX(0%);
+  }
+  &.ocultar {
+    transform: translateX(-100%);
+    transition: transform 0.3s linear;
+  }
   @include desktop {
     width: 50%;
   }
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.scroll-body {
+  overflow: hidden;
+}
+.aside-filtro {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  visibility: hidden;
+  transition: background-color 3000ms linear;
 }

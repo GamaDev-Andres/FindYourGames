@@ -67,164 +67,174 @@
       </nav>
       <!--FIN NAVEGACION-->
       <!--INICIO DE FILTRO-->
-      <aside class="aside-filtro">
-        <div class="contendor-filtro">
-          <h3 class="titulo-filtro">Filtra Tu Juego</h3>
-          <form class="formulario">
-            <!-- FILTRO ORDENAR - INICIO -->
-            <div class="ordenar-por">
-              <label>Ordena por : </label>
-              <select name="ordenar" id="input-ordenear">
-                <option class="option-ordenar" value="todos" selected>
-                  Todos
-                </option>
-                <option class="option-ordenar" value="relevance">
-                  Relevancia
-                </option>
-                <option class="option-ordenar" value="alphabetical">
-                  Alfabeticamente
-                </option>
-                <option class="option-ordenar" value="popularity">
-                  Popularidad
-                </option>
-                <option class="option-ordenar" value="release-date">
-                  Fecha de lanzamiento
-                </option>
-              </select>
-            </div>
-            <!-- FILTRO ORDENAR - FIN  -->
-            <!-- FILTRO GENERO-INICIO -->
-            <div class="genero">
-              <h4>GENERO</h4>
-              <div>
-                <label for="TODOS">TODOS</label
-                ><input
-                  id="TODOS"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="TODOS"
-                />
+      <aside id="contenido-filtro" class="aside-filtro">
+        <div class="div-filtro">
+          <div class="contendor-filtro">
+            <button class="cerrar-filtro">
+              <i class="far fa-times-circle"></i>
+            </button>
+            <h3 class="titulo-filtro">Filtra Tu Juego</h3>
+            <form class="formulario">
+              <!-- FILTRO ORDENAR - INICIO -->
+              <div class="ordenar-por">
+                <label>Ordena por : </label>
+                <select name="ordenar" id="input-ordenear">
+                  <option class="option-ordenar" value="todos" selected>
+                    Todos
+                  </option>
+                  <option class="option-ordenar" value="relevance">
+                    Relevancia
+                  </option>
+                  <option class="option-ordenar" value="alphabetical">
+                    Alfabeticamente
+                  </option>
+                  <option class="option-ordenar" value="popularity">
+                    Popularidad
+                  </option>
+                  <option class="option-ordenar" value="release-date">
+                    Fecha de lanzamiento
+                  </option>
+                </select>
               </div>
+              <!-- FILTRO ORDENAR - FIN  -->
+              <!-- FILTRO GENERO-INICIO -->
+              <div class="genero">
+                <h4>GENERO</h4>
+                <div>
+                  <label for="TODOS">TODOS</label
+                  ><input
+                    id="TODOS"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="TODOS"
+                  />
+                </div>
 
-              <div>
-                <label for="MMO">MMO</label
-                ><input
-                  id="MMO"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="MMO"
-                />
-              </div>
-              <div>
-                <label for="SHOOTER">SHOOTER</label
-                ><input
-                  id="SHOOTER"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="SHOOTER"
-                />
-              </div>
-              <div>
-                <label for="MOBA">MOBA</label
-                ><input
-                  id="MOBA"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="MOBA"
-                />
-              </div>
-              <div>
-                <label for="BATTLE">BATTLE ROYALE</label
-                ><input
-                  id="BATTLE"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="BATTLE ROYALE"
-                />
-              </div>
-              <div>
-                <label for="CARD">CARD</label
-                ><input
-                  id="CARD"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="CARD GAME"
-                />
-              </div>
-              <div>
-                <label for="RACING">RACING</label
-                ><input
-                  id="RACING"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="RACING"
-                />
-              </div>
-              <div>
-                <label for="SPORTS">SPORTS</label
-                ><input
-                  id="SPORTS"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="SPORTS"
-                />
-              </div>
-              <div>
-                <label for="SOCIAL">SOCIAL</label
-                ><input
-                  id="SOCIAL"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="SOCIAL"
-                />
-              </div>
-              <div>
-                <label for="FIGHTING">FIGHTING</label
-                ><input
-                  id="FIGHTING"
-                  type="radio"
-                  name="genero"
-                  class="input-genero"
-                  value="FIGHTING"
-                />
-              </div>
-            </div>
-            <!-- FILTRO GENERO - FIN  -->
-            <!-- FILTRO PLATAFORMA -INICIO -->
-            <div class="plataforma">
-              <h4>PLATAFORMA</h4>
-              <div>
                 <div>
-                  <label for="browser">Navegador</label
+                  <label for="MMO">MMO</label
                   ><input
-                    id="browser"
-                    type="checkbox"
-                    name="plataforma"
-                    value="web browser"
+                    id="MMO"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="MMO"
                   />
                 </div>
                 <div>
-                  <label for="pc">PC</label
+                  <label for="SHOOTER">SHOOTER</label
                   ><input
-                    id="pc"
-                    type="checkbox"
-                    name="plataforma"
-                    value="pc"
+                    id="SHOOTER"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="SHOOTER"
+                  />
+                </div>
+                <div>
+                  <label for="MOBA">MOBA</label
+                  ><input
+                    id="MOBA"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="MOBA"
+                  />
+                </div>
+                <div>
+                  <label for="BATTLE">BATTLE ROYALE</label
+                  ><input
+                    id="BATTLE"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="BATTLE ROYALE"
+                  />
+                </div>
+                <div>
+                  <label for="CARD">CARD</label
+                  ><input
+                    id="CARD"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="CARD GAME"
+                  />
+                </div>
+                <div>
+                  <label for="RACING">RACING</label
+                  ><input
+                    id="RACING"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="RACING"
+                  />
+                </div>
+                <div>
+                  <label for="SPORTS">SPORTS</label
+                  ><input
+                    id="SPORTS"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="SPORTS"
+                  />
+                </div>
+                <div>
+                  <label for="SOCIAL">SOCIAL</label
+                  ><input
+                    id="SOCIAL"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="SOCIAL"
+                  />
+                </div>
+                <div>
+                  <label for="FIGHTING">FIGHTING</label
+                  ><input
+                    id="FIGHTING"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="FIGHTING"
                   />
                 </div>
               </div>
-            </div>
-            <!-- FILTRO PLATAFORMA -FIN -->
-          </form>
+              <!-- FILTRO GENERO - FIN  -->
+              <!-- FILTRO PLATAFORMA -INICIO -->
+              <div class="plataforma">
+                <h4>PLATAFORMA</h4>
+                <div>
+                  <div>
+                    <label for="browser">Navegador</label
+                    ><input
+                      id="browser"
+                      type="checkbox"
+                      name="plataforma"
+                      value="web browser"
+                    />
+                  </div>
+                  <div>
+                    <label for="pc">PC</label
+                    ><input
+                      id="pc"
+                      type="checkbox"
+                      name="plataforma"
+                      value="pc"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- FILTRO PLATAFORMA -FIN -->
+              <div class="div-submit">
+                <label for="submit-filtro">
+                  <input id="submit-filtro" type="submit" value="Buscar" />
+                </label>
+              </div>
+            </form>
+          </div>
         </div>
       </aside>
       <!--FIN FILTRO-->
