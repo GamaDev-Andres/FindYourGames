@@ -34,6 +34,7 @@
     top: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: $grande;
     h1 {
@@ -79,8 +80,9 @@
     flex-direction: column;
     gap: 0px;
     justify-content: center;
+    padding: 1rem 0;
     .enlaces {
-      margin-top: $estandar;
+      margin-top: 0;
     }
     .div-buscador {
       form {
@@ -121,8 +123,8 @@
   }
 }
 .bienvenida {
-  border-bottom: 2px solid $n-claro;
-  margin-top: 100px;
+  border-bottom: 1px solid $n-claro;
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,10 +142,10 @@
     margin-top: 0;
   }
   @include desktop {
-    margin-top: 150px;
+    margin-top: 129px;
   }
   @include tablet {
-    margin-top: 110px;
+    margin-top: 80px;
     h2 {
       span {
         display: none;

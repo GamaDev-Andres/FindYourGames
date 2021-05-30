@@ -1,6 +1,7 @@
 .contendor-filtro {
   width: 100%;
-  margin: 0;
+  // margin: 0 auto;
+  align-self: start !important;
   label {
     text-transform: lowercase;
     color: $blanco;
@@ -123,18 +124,21 @@
       &:focus {
         background-color: darken($naranja, $amount: 10);
         transform: scale(1.03);
-        transition: all 0.3s linear;
+        transition: background-color 0.3s linear;
       }
     }
   }
 }
 .div-filtro {
+  // margin: 0 auto;
   overflow: scroll;
   background-color: #1c1e22;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 35%;
   height: 100vh;
   display: flex;
+  justify-content: center;
+  // align-items: center;
   position: fixed;
   top: 0;
   bottom: 0;

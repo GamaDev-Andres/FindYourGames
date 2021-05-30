@@ -31,6 +31,9 @@
           <a href="../../index.html" class="inicio">Inicio</a>
           <a href="./gameList.html" class="game-list">Game List</a>
           <a href="#" class="filtrar">Filtrar</a>
+          <div class="brillo">
+            <i class="fas fa-sun"></i>
+          </div>
         </div>
         <!--INICIO FORMULARIO-->
         <div class="div-buscador">
@@ -101,13 +104,33 @@
               <div class="genero">
                 <h4>GENERO</h4>
                 <div>
-                  <label for="TODOS">TODOS</label
+                  <label for="STRATEGY">STRATEGY</label
                   ><input
-                    id="TODOS"
+                    id="STRATEGY"
                     type="radio"
                     name="genero"
                     class="input-genero"
-                    value="TODOS"
+                    value="STRATEGY"
+                  />
+                </div>
+                <div>
+                  <label for="FANTASY">FANTASY</label
+                  ><input
+                    id="FANTASY"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="FANTASY"
+                  />
+                </div>
+                <div>
+                  <label for="ARPG">ARPG</label
+                  ><input
+                    id="ARPG"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="ARPG"
                   />
                 </div>
 
@@ -119,6 +142,16 @@
                     name="genero"
                     class="input-genero"
                     value="MMO"
+                  />
+                </div>
+                <div>
+                  <label for="MMORPG">MMORPG</label
+                  ><input
+                    id="MMORPG"
+                    type="radio"
+                    name="genero"
+                    class="input-genero"
+                    value="MMORPG"
                   />
                 </div>
                 <div>
@@ -211,19 +244,14 @@
                     <label for="browser">Navegador</label
                     ><input
                       id="browser"
-                      type="checkbox"
+                      type="radio"
                       name="plataforma"
-                      value="web browser"
+                      value="browser"
                     />
                   </div>
                   <div>
                     <label for="pc">PC</label
-                    ><input
-                      id="pc"
-                      type="checkbox"
-                      name="plataforma"
-                      value="pc"
-                    />
+                    ><input id="pc" type="radio" name="plataforma" value="pc" />
                   </div>
                 </div>
               </div>
@@ -251,7 +279,10 @@
     </header>
     <!--FIN DE NUESTRA CABECERA-->
     <!-- INICIO DE CONTENIDO PRINCIPAL -->
-    <div id="contenedor-gameList" class="contenido-gameList"></div>
+    <div
+      id="contenedor-gameList"
+      class="contenido-principal contenido-gameList"
+    ></div>
     <div class="aviso-contenido"></div>
     <!--boton scroll-->
     <div class="btn-scroll">

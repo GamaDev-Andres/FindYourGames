@@ -1,3 +1,5 @@
+const contenedor = document.querySelector(".contenido-principal");
+const divBienvenida = document.querySelector(".bienvenida");
 const body = document.querySelector("body");
 const contenedorFiltro = document.querySelector(".aside-filtro");
 const filtro = document.querySelector(".div-filtro");
@@ -5,15 +7,33 @@ const iconoMenu = document.querySelector(".menu");
 const inputSearch = document.querySelector(".buscar");
 const formulario = document.querySelector(".formulario-buscar");
 const btnFiltro = document.querySelector(".filtrar");
+const btnBrillo = document.querySelector(".brillo");
+const formularioFiltro = document.querySelector(".formulario");
 
 //DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
+  //CONSULTO EL TEMA O BRILLO
+  if (localStorage.getItem("tema")) {
+    claro();
+    if (!formulario) {
+      const parrafosInicio = document.querySelectorAll(".texto p");
+      parrafosInicio.forEach((parrafo) => {
+        parrafo.style.color = "black";
+      });
+    }
+  } else {
+    oscuro();
+  }
   iconoMenu.addEventListener("click", desplegarMenu);
-  consultarAPI();
-  detectaScroll();
-  formulario.addEventListener("submit", buscadorGames);
-  btnFiltro.addEventListener("click", abrirFiltro);
   document.addEventListener("click", cerrarFiltro);
+  formularioFiltro.addEventListener("submit", filtroAPI);
+  if (formulario) {
+    consultarAPI();
+    formulario.addEventListener("submit", buscadorGames);
+    btnFiltro.addEventListener("click", abrirFiltro);
+    detectaScroll();
+  }
+  btnBrillo.addEventListener("click", cambiarTema);
 });
 //FUNCION PARA DESPLEGAR EL MENU ,CUANDO DOY CLICK EN EL ICONO
 function desplegarMenu() {
@@ -23,24 +43,28 @@ function desplegarMenu() {
 
   if (document.querySelector(".inactivo")) {
     enlaces.style.display = "flex";
-    formulario.style.display = "flex";
+    if (formulario) {
+      formulario.style.display = "flex";
+    }
     iconoMenu.classList.remove("inactivo");
   } else {
     enlaces.style.display = "none";
-    formulario.style.display = "none";
+    if (formulario) {
+      formulario.style.display = "none";
+    }
     iconoMenu.classList.add("inactivo");
   }
 }
+let urlList = "https://www.freetogame.com/api/games";
 //CONSULTO A LA API
 async function consultarAPI() {
-  const urlList = "https://www.freetogame.com/api/games";
+  console.log(urlList);
   const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
     urlList
   )}`;
   const respuesta = await fetch(url);
   const resolve = await respuesta.json();
   const resultado = JSON.parse(resolve.contents);
-  // console.log(resultado);
   crearHtml(resultado);
 }
 
@@ -181,14 +205,16 @@ async function filtrarRespuesta(filtro) {
   const resolve = await respuesta.json();
   const resultado = JSON.parse(resolve.contents);
   let filtrado = filtro.trim();
-  let re = new RegExp(filtrado, "i");
+  let expresionReg = new RegExp(filtrado, "i");
   if (filtrado === "") {
     inputSearch.value = "";
     location.href = "gameList.html";
     return;
   }
-  if (resultado.some((juego) => re.test(juego.title))) {
-    const arrayFiltrado = resultado.filter((juego) => re.test(juego.title));
+  if (resultado.some((juego) => expresionReg.test(juego.title))) {
+    const arrayFiltrado = resultado.filter((juego) =>
+      expresionReg.test(juego.title)
+    );
     crearHtml(arrayFiltrado);
   } else {
     alert("No tenemos resultados");
@@ -199,9 +225,13 @@ async function filtrarRespuesta(filtro) {
 }
 function limpiarHtml() {
   const contenidoPrincipal = document.querySelector(".contenido-gameList");
+  const aviso = document.querySelector(".aviso-contenido");
 
   while (contenidoPrincipal.firstChild) {
     contenidoPrincipal.removeChild(contenidoPrincipal.firstChild);
+  }
+  while (aviso.firstChild) {
+    aviso.removeChild(aviso.firstChild);
   }
 }
 //////////////////////////////////////////////////////////////
@@ -217,11 +247,113 @@ function abrirFiltro(e) {
 function cerrarFiltro(e) {
   if (
     e.target.id === "contenido-filtro" ||
-    e.target.classList.contains("far")
+    e.target.classList.contains("far") ||
+    e.target.id === "submit-filtro"
   ) {
-    console.log("estoy awui");
+    // console.log("estoy awui");
     filtro.classList.remove("transicion");
     body.classList.remove("scroll-body");
     contenedorFiltro.style.visibility = "hidden";
   }
+}
+////////////////////////////////////////////////////
+//FUNCIONALIDAD AL BOTON DE BRILLO
+function cambiarTema() {
+  if (!localStorage.getItem("tema")) {
+    localStorage.setItem("tema", "claro");
+    claro();
+  } else {
+    localStorage.removeItem("tema");
+    oscuro();
+  }
+}
+function claro() {
+  contenedor.classList.add("cambio-tema");
+  divBienvenida.classList.add("cambio-tema");
+  if (!formulario) {
+    const parrafosInicio = document.querySelectorAll(".texto p");
+    parrafosInicio.forEach((parrafo) => {
+      parrafo.style.color = "black";
+    });
+  }
+}
+function oscuro() {
+  contenedor.classList.remove("cambio-tema");
+  divBienvenida.classList.remove("cambio-tema");
+  if (!formulario) {
+    const parrafosInicio = document.querySelectorAll(".texto p");
+    parrafosInicio.forEach((parrafo) => {
+      parrafo.style.color = "#a7a7a7";
+    });
+  }
+}
+///////////////////////////////////////////////////////////////////
+//CONSULTA API DEL FILTRO
+
+function filtroAPI(e) {
+  e.preventDefault();
+  const inputGenero = document.querySelector("input[name='genero']:checked");
+  const inputOrdenar = document.querySelector("select[name='ordenar']");
+  const inputPlataforma = document.querySelector(
+    "input[name='plataforma']:checked"
+  );
+
+  let arregloURL = [inputGenero, inputPlataforma, inputOrdenar];
+
+  arregloURL = arregloURL
+    .filter((input) => input !== null)
+    .map((input) => input.name);
+  let categorias = {
+    plataforma: "platform",
+    ordenar: "sort-by",
+    genero: "category",
+  };
+  arregloURL = arregloURL.map((categoria) => categorias[categoria]);
+  // console.log(arregloURL);
+
+  switch (arregloURL.length) {
+    case 1:
+      if (inputOrdenar.value === "todos") {
+        urlList = "https://www.freetogame.com/api/games";
+      } else {
+        urlList = `https://www.freetogame.com/api/games?sort-by=${inputOrdenar.value}`;
+      }
+
+      break;
+    case 2:
+      if (inputOrdenar.value !== "todos") {
+        if (arregloURL.includes("platform")) {
+          urlList = `https://www.freetogame.com/api/games?platform=${inputPlataforma.value}&sort-by=${inputOrdenar.value}`;
+        } else {
+          urlList = `https://www.freetogame.com/api/games?category=${inputGenero.value.toLowerCase()}&sort-by=${
+            inputOrdenar.value
+          }`;
+        }
+      } else {
+        if (arregloURL.includes("platform")) {
+          urlList = `https://www.freetogame.com/api/games?platform=${inputPlataforma.value}`;
+        } else {
+          urlList = `https://www.freetogame.com/api/games?category=${inputGenero.value.toLowerCase()}`;
+        }
+      }
+
+      break;
+    case 3:
+      urlList = `https://www.freetogame.com/api/games?platform=${
+        inputPlataforma.value
+      }&category=${inputGenero.value.toLowerCase()}&sort-by=${
+        inputOrdenar.value
+      }`;
+
+      break;
+
+    default:
+      break;
+  }
+
+  console.log(urlList);
+  inicial = 0;
+  limpiarHtml();
+  consultarAPI();
+  e.target.reset();
 }

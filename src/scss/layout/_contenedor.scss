@@ -128,15 +128,31 @@
   }
 }
 
+.brillo {
+  cursor: pointer;
+  i {
+    color: white;
+    font-size: 20px;
+  }
+  &:hover {
+    i {
+      // color: lighten($naranja, $amount: 5);
+      transform: scale(1.15);
+      color: $naranja;
+      transition: all 0.3s ease;
+    }
+  }
+}
 div.btn-scroll {
+  right: calc(50vw - (67px / 2));
+  z-index: 1000;
   display: none;
   background-color: $naranja;
   position: fixed;
   // width: auto;
   border-radius: 50%;
   margin: auto;
-  padding: 1rem;
-  right: calc(50vw - (67px / 2));
+  padding: 0.75rem;
   bottom: 1rem;
   &:hover {
     background-color: lighten($naranja, $amount: 5);
@@ -150,13 +166,19 @@ div.btn-scroll {
     color: $blanco;
   }
   @include telefono {
+    padding: 0.3rem;
     i {
-      font-size: 22px;
+      font-size: 16px;
+    }
+  }
+  @include tablet {
+    padding: 0.5rem;
+    i {
+      font-size: 28px;
     }
   }
 }
-@include tablet {
-  i {
-    font-size: 28px;
-  }
+.cambio-tema {
+  background-color: #ffff;
+  transition: background-color 500ms ease;
 }
