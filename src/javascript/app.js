@@ -9,9 +9,19 @@ const formulario = document.querySelector(".formulario-buscar");
 const btnFiltro = document.querySelector(".filtrar");
 const btnBrillo = document.querySelector(".brillo");
 const formularioFiltro = document.querySelector(".formulario");
+const mq = matchMedia("(min-width:768px)");
 
 //DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
+  mq.addEventListener("change", () => {
+    if (mq.matches) {
+      const enlaces = document.querySelector(".enlaces");
+      const formulario = document.querySelector(".div-buscador");
+      enlaces.style.display = "flex";
+      formulario.style.display = "flex";
+      iconoMenu.classList.remove("inactivo");
+    }
+  });
   //CONSULTO EL TEMA O BRILLO
   if (localStorage.getItem("tema")) {
     claro();
@@ -26,7 +36,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   iconoMenu.addEventListener("click", desplegarMenu);
   document.addEventListener("click", cerrarFiltro);
-  formularioFiltro.addEventListener("submit", filtroAPI);
+  if (formularioFiltro) {
+    formularioFiltro.addEventListener("submit", filtroAPI);
+  }
   if (formulario) {
     consultarAPI();
     formulario.addEventListener("submit", buscadorGames);
@@ -49,6 +61,8 @@ function desplegarMenu() {
     iconoMenu.classList.remove("inactivo");
   } else {
     enlaces.style.display = "none";
+    // enlaces.style.visibility = "hidden";
+    // enlaces.style.opacity = "0";
     if (formulario) {
       formulario.style.display = "none";
     }
@@ -148,8 +162,6 @@ function crearHtmlGame(game) {
 
   const informacion = document.createElement("p");
   informacion.innerHTML = `<strong>Informacion:</strong> ${short_description}`;
-
-  const strong = document.createElement("strong");
 
   const boton = document.createElement("a");
   boton.href = game_url;

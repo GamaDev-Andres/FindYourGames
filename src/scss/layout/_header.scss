@@ -82,9 +82,11 @@
     justify-content: center;
     padding: 1rem 0;
     .enlaces {
+      display: flex;
       margin-top: 0;
     }
     .div-buscador {
+      display: flex;
       form {
         input {
           width: 500px;
@@ -99,6 +101,7 @@
     .enlaces,
     .div-buscador {
       display: none;
+      // visibility: hidden;
       flex-flow: column wrap;
       gap: 1rem;
     }
