@@ -72,7 +72,7 @@ function desplegarMenu() {
 let urlList = "https://www.freetogame.com/api/games";
 //CONSULTO A LA API
 async function consultarAPI() {
-  console.log(urlList);
+  // console.log(urlList);
   const url = `https://api.allorigins.win/get?url=${encodeURIComponent(
     urlList
   )}`;
@@ -105,7 +105,7 @@ function crearHtml(resultado) {
     //CONDICIONAL PARA CUANDO SE ACABE EL ARRAY
     if (inicial === resultado.length) {
       const aviso = document.querySelector(".aviso-contenido");
-      console.log("no hay mas");
+      // console.log("no hay mas");
       let noMore = document.createElement("h3");
       noMore.classList.add("aviso");
       noMore.textContent = "No Hay Mas Contenido";
@@ -197,13 +197,13 @@ function detectaScroll() {
 function buscadorGames(e) {
   e.preventDefault();
   // const inputBuscador = e.target;
-  console.log("si estoy aqui");
-  console.log(e.target);
+  // console.log("si estoy aqui");
+  // console.log(e.target);
   if (!inputSearch.value) {
     return;
   } else {
     limpiarHtml();
-    console.log(inputSearch.value);
+    // console.log(inputSearch.value);
     filtrarRespuesta(inputSearch.value);
   }
   // filtrarRespuesta(e.target.value);
@@ -363,7 +363,7 @@ function filtroAPI(e) {
       break;
   }
 
-  console.log(urlList);
+  // console.log(urlList);
   inicial = 0;
   limpiarHtml();
   consultarAPI();
